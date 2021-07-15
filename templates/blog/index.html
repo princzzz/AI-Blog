@@ -1,0 +1,48 @@
+{%extends 'base.html' %}
+{%load static%}
+{%block title%}Blog{%endblock%}
+{%block blogActive%}active{%endblock%}
+{%block customCss%}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+{%endblock%}
+{%block body%}
+<div class="max-w-3xl mx-auto px-4 sm:px-6 xl:max-w-5xl xl:px-0 ">
+    <main>
+        <div class="divide-y divide-gray-200">
+            
+            <ul class="divide-y divide-gray-200">
+                {%for i in allPosts%}
+                <li class="py-12">
+                    <article class="space-y-2 xl:grid xl:grid-cols-4 xl:space-y-0 xl:items-baseline">
+                        <dl><dt class="sr-only">Author</dt>
+                            <dd class="text-base leading-6 font-medium text-gray-500">
+                                
+                                <span class="font-semibold title-font text-gray-700">{{i.author}}</span>
+                            </dd>
+                        </dl>
+                        <div class="space-y-5 xl:col-span-3">
+                            <div class="space-y-6">
+                                <h2 class="text-2xl leading-8 font-bold tracking-tight"><a class="text-gray-900" href="/blog/{{i.slug}}">{{i.title}}</a></h2>
+                                <div class="prose max-w-none text-gray-500">
+                                    {{i.content|safe|truncatewords_html:50}}
+                                </div>
+                            </div>
+                            <div class="text-base leading-6 font-medium">
+                                <a href="/blog/{{i.slug}}" class="text-yellow-500 inline-flex items-center mt-4">Read More
+                                    <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M5 12h14"></path>
+                                        <path d="M12 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </li>
+
+               {%endfor%}
+
+            </ul>
+        </div>
+    </main>
+</div>
+{%endblock%}

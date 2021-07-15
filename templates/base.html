@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% load static %}
+    <link href="{% static 'assets/img/ico.png' %} " rel="icon">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="google" content="notranslate">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="description" content="Assam Artificial Intelligence Initiative (AAII – আই)" />
+    <title> {%block title%} {%endblock title%}</title>
+    {% comment %}
+    <link href="/static/assets/cdn/tailwind.min.css" rel="stylesheet"> {% endcomment %}
+    <!--<link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">-->
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" />
+
+</head>
+
+<body>
+    <!--NAV BAR-->
+    <header class="lg:px-40 text-gray-600 body-font ">
+        <div class=" container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+            <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+                <img src="{% static 'assets/img/ico.png' %}" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-12 h-12 text-white  rounded-full" viewBox="0 0 24 24" />
+                <span class="ml-3 text-xl">AAII AXOM</span>
+            </a>
+            <nav class=" md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400  flex flex-wrap items-center text-base justify-center">
+                <a href="/" class="mr-5 hover:text-gray-900">Home</a>
+                <a href="/about" class="mr-5 hover:text-gray-900">About</a>
+                <a href="/blog" class="mr-5 hover:text-gray-900">Blog</a>
+                <a href="/post_event" class="mr-5 hover:text-gray-900">Event</a>
+                <a href="/contactUs" class="mr-5 hover:text-gray-900">Contact Us</a>
+                {% if user.is_authenticated %}
+                <a href="/admin/" class="mr-5 hover:text-gray-900">Adimn</a>
+                {%endif%}
+            </nav>
+            {% if user.is_authenticated %}
+            <a href="/logout" class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Sign out
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+            </a>
+            {% else %}
+            <a href="/loginPage" class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Sign in
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+            </a>
+            {%endif%}
+        </div>
+    </header>
+    <!--END OF NAV-->
+    <!--END MESSAGE POP UP SECTION-->
+    {%block customCss%}
+    {%endblock%}
+    {%block body%}{%endblock%}
+    <!--FOOTER-->
+    <div class="bg-gray-100 ">
+        <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
+            <p class="text-gray-500 text-sm text-center sm:text-left">© 2021 AAII —
+                <a rel="noopener noreferrer" class="text-gray-600 ml-1">@Admin</a>
+            </p>
+            <span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
+                <a href="https://www.facebook.com/Assam-Artificial-Intelligence-Initiative-AAII-109891140892931/" target="_blanck" class="text-gray-500">
+                    <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                        <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                    </svg>
+                </a>
+                <a href="#" class="ml-3 text-gray-500">
+                    <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                        <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+                    </svg>
+                </a>
+                <a class="ml-3 text-gray-500">
+                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/assam-ai-initiative-aaii-5aa108205/" target="_blanck" class="ml-3 text-gray-500">
+                    <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+                        <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+                        <circle cx="4" cy="4" r="2" stroke="none"></circle>
+                    </svg>
+                </a>
+            </span>
+        </div>
+    </div>
+    <!--THIS WILL CLEAR THE EXISTING FORM DATA EVERYTIME -->
+    <script>
+    if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
+    }
+    </script>
+    <!--END FOOTER-->
+    <link rel="stylesheet" type="text/css" href="/static/prism.css">
+    <script src="/static/prism.js"></script>
+</body>
+
+</html>
