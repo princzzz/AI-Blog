@@ -1,4 +1,4 @@
-# AI-Blog
+# AI-Blog (By Sameer)
 Django blog article and event management. 
 ## Demo
 
